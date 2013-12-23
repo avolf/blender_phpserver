@@ -18,7 +18,7 @@ if(!isset($_GET["end"] )) {
 $jobname=$_GET["job"];
 $startframe=$_GET["start"];
 $endframe=$_GET["end"];
-$framecount=1;
+$framecount=$endframe-$startframe;
 
 $db=sqlite_open("blenderphp.db");
 $jobname=$_GET["job"];
