@@ -1,23 +1,19 @@
 <?
-
-function require_blphp_db()
+function init_blphp_db()
 {
-	define( 'RPATH',  dirname(__FILE__) . '/' );
-	define( 'BLPINC', 'include' );
+	define('RPATH',dirname(__FILE__).'/');
+	define('BLPINC','include' );
 
-	global $blpdb;
-
-	require_once( RPATH . BLPINC . '/blp-db.php' );
-	require_once( RPATH . '/blp-config.php' );
+	require_once(RPATH.BLPINC.'/blp-db.php');
+	require_once(RPATH.BLPINC.'/blp-dbitem.php');
+	require_once(RPATH.BLPINC.'/blp-job.php');
+	require_once(RPATH.'/blp-config.php');
 	
-	if ( isset( $blpdb ) )
-		return;
-
 	if (DB_TYPE == 'sqlite2')
-		$blpdb = new BlpDB( DB_TYPE, DB_NAME);
+		$blpdb=new BlpDB(DB_TYPE,DB_NAME);
 	else
-		$blpdb = new BlpDB(  DB_TYPE, DB_HOST, DB_NAME, DB_USER, DB_PASSWORD  );
+		$blpdb=new BlpDB(DB_TYPE,DB_HOST,DB_NAME,DB_USER,DB_PASSWORD);
+		
+	return $blpdb;
 };
-
-
 ?>

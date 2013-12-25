@@ -1,9 +1,26 @@
 <?
-//SQLite Database initialization
+//SQL Database initialization
+require_once('load-db.php');
+$blpdb=init_blphp_db();
 
-$count=0;
-$db=sqlite_open("blenderphp.db");
-@sqlite_query($db,"CREATE TABLE job_list (name varchar(32), start int, end int, count int)",$sqliteerror);
-echo "DB initialized, error was ".$sqliteerror."<br>";
-sqlite_close($db);
+echo "Initializing DB...<br>\n";
+$blpdb->initDB();
+echo "Creating dummy Job...<br>\n";
+$b= new BlpJob($blpdb);
+$b->setName("TestName");
+$b->setBegin(1);
+$b->setEnd(21);
+$b->write();
+
+echo "Query job contents dummy Job...<br>\n";
+$query = "SELECT * from job_list";
+$stmt  = $blpdb->prepare($query);
+$stmt->execute();
+$rows = $stmt->fetchAll();
+
+echo "<br>\n";
+foreach($rows as $row) {
+print_r($row);
+echo "<br>";
+}
 ?>

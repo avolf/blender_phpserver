@@ -18,30 +18,18 @@ if(!isset($_GET["end"] )) {
 $jobname=$_GET["job"];
 $startframe=$_GET["start"];
 $endframe=$_GET["end"];
-$framecount=$endframe-$startframe;
 
-$db=sqlite_open("blenderphp.db");
-$jobname=$_GET["job"];
-
-$check=sqlite_single_query($db,"SELECT count(name) from job_list WHERE name='".$jobname."'");
-if ($check!=0) {
-	echo "Job ".$jobname." already exists!<br>";
-	return;
-}
+require_once('load-db.php');
+$blpdb=init_blphp_db();
 
 echo "Creating job ".$jobname." !<br>";
 
-echo $check;
-$qerr="INSERT INTO job_list VALUES ('"
-.$jobname."',"
-.$startframe.","
-.$endframe.","
-.$framecount.")";
-echo "<br>$qerr<br>";
-sqlite_query($db, $qerr ,$sqliteerror);
-echo "<br>Job successfully created<br>";
-
-sqlite_close($db);
-
-
+$b= new BlpJob($blpdb);
+$b->setName($jobname);
+$b->setBegin($startframe);
+$b->setEnd($endframe);
+if ($b->write())
+	echo "<br>Job successfully created<br>";
+else
+	echo "<br>Job creation failed<br>";
 ?>
