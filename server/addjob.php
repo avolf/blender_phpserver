@@ -19,7 +19,7 @@ $jobname=$_GET["job"];
 $startframe=$_GET["start"];
 $endframe=$_GET["end"];
 
-require_once('load-db.php');
+require_once('blp-loaddb.php');
 $blpdb=init_blphp_db();
 
 echo "Creating job ".$jobname." !<br>";

@@ -26,7 +26,7 @@ class BlpJob extends BlpItem
 		$this->name = $row['name'];
 		$this->begin = $row['start'];
 		$this->end = $row['end'];
-		updateSize();
+		$this->updateSize();
 	}
 	
 	public function __write(){
@@ -55,9 +55,11 @@ class BlpJob extends BlpItem
 	}
 	public function setBegin($i){
 		$this->begin=$i;
+		$this->updateSize();
 	}
 	public function setEnd($i){
 		$this->end=$i;
+		$this->updateSize();
 	}
 }
 ?>
