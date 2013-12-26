@@ -8,5 +8,5 @@ $htpl="";
 $btpl=BLPTPL.'/blp-index.tpl.php';
 
 #serve Base page template
-include BLPINC."/blp-page.tpl.php";
+include BLPTPL."/blp-page.tpl.php";
 ?>
