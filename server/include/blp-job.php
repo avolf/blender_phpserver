@@ -6,12 +6,19 @@ class BlpJob extends BlpItem
 	private $end;
 	private $size;
 	
-	public function __construct($id,$db){
-		parent::__construct($id,$db);
+	public function __construct($db){
+		parent::__construct($db);
 	}
 
-	public function __construct2($db){
-		parent::__construct2($db);
+	public static function create($db){
+		 $instance = new self($db);
+		 return $instance;
+	}
+
+	public static function createWID($id, $db){
+		 $instance = new self($db);
+		 $instance->setID($id);
+		 return $instance;
 	}
 	
 	private function updateSize(){	

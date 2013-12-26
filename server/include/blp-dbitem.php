@@ -5,15 +5,14 @@ class BlpItem
 	private $db;
 	private $isnew;
 	
-	public function __construct($id,$db){
-		$this->id=$id;
-		$this->db=$db;
-		$this->isnew=false;
-	}
-	
-	public function __construct2($db){
+	public function __construct($db){
 		$this->db=$db;
 		$this->isnew=true;
+	}
+	
+	protected function setID($id){
+		$this->id=$id;
+		$this->isnew=false;
 	}
 	
 	public function __tableName(){

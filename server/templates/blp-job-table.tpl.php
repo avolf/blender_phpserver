@@ -5,7 +5,7 @@ $rows=$blpdb->getJobList();
 $ids=$blpdb->getJobIDList();
 
 foreach($ids as $id) {
-	$j=new BlpJob($id['id'],$blpdb);
+	$j= BlpJob::createWID($id['id'],$blpdb);
 	$j->read();
 	echo $j->getDescriptionRow();
 }
