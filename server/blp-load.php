@@ -2,13 +2,14 @@
 function init_blphp_db()
 {
 	define('RPATH',dirname(__FILE__).'/');
-	define('BLPINC','include' );
-	define('BLPCFG','config' );
+	define('BLPINC',RPATH.'include' );
+	define('BLPCFG',RPATH.'config' );
+	define('BLPTPL',RPATH.'templates' );
 
-	require_once(RPATH.BLPINC.'/blp-db.php');
-	require_once(RPATH.BLPINC.'/blp-dbitem.php');
-	require_once(RPATH.BLPINC.'/blp-job.php');
-	require_once(RPATH.BLPCFG.'/blp-config.php');
+	require_once(BLPINC.'/blp-db.php');
+	require_once(BLPINC.'/blp-dbitem.php');
+	require_once(BLPINC.'/blp-job.php');
+	require_once(BLPCFG.'/blp-config.php');
 	
 	if (DB_TYPE == 'sqlite2') {
 		#echo "Opening SQLite2 DB";

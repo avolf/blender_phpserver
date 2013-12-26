@@ -5,8 +5,8 @@ $blpdb=init_blphp_db();
 
 #init Templates
 $htpl="";
-$btpl="index.tpl.php";
+$btpl=BLPTPL.'/index.tpl.php';
 
 #serve Base page template
-include "include/blp-page.tpl.php";
+include BLPINC."/blp-page.tpl.php";
 ?>
