@@ -1,23 +1,31 @@
 <?php
-//SQLite Database test query
-if(!isset($_GET["name"] )) {
+if(!isset($_POST["name"]) ||
+!isset($_POST["start"]) ||
+!isset($_POST["end"])) {
+	echo "Error only usable as post!\n";
+	echo "<br>";
+	return;
+}
+
+$jobname=$_POST["name"];
+$startframe=$_POST["start"];
+$endframe=$_POST["end"];
+
+if($jobname=="") {
 	echo "No Job name set!\n";
 	echo "<br>";
 	return;
 }
-if(!isset($_GET["start"] )) {
+if($startframe=="") {
 	echo "No Job start frame set!\n";
 	echo "<br>";
 	return;
 }
-if(!isset($_GET["end"] )) {
+if($endframe=="") {
 	echo "No Job end frame set!\n";
 	echo "<br>";
 	return;
 }
-$jobname=$_GET["name"];
-$startframe=$_GET["start"];
-$endframe=$_GET["end"];
 
 $b= new BlpJob($blpdb);
 $b->setName($jobname);

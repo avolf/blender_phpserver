@@ -8,9 +8,9 @@
 <body>
 <div id="page">
 <?php echo SITE_NAME; ?><br>
-<a class="button" href="index.php" >Home</a>
-<a class="button" href="index.php" >Jobs</a>
-<a class="button" href="index.php" >Hosts</a>
+<a class="button" href="index.php"  >Home</a>
+<a class="button" href="newjob.php" >New Job</a>
+<a class="button" href="index.php"  >Hosts</a>
 <br>
 <?php if ($btpl!="") include $btpl ?>
 </div>
