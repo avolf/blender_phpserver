@@ -5,15 +5,15 @@ class BlpItem
 	private $db;
 	private $isnew;
 	
-	public function __construct($db){
-		$this->db=$db;
-		$this->isnew=true;
-	}
-	
-	public function __construct2($id,$db){
+	public function __construct($id,$db){
 		$this->id=$id;
 		$this->db=$db;
 		$this->isnew=false;
+	}
+	
+	public function __construct2($db){
+		$this->db=$db;
+		$this->isnew=true;
 	}
 	
 	public function __tableName(){
@@ -29,11 +29,12 @@ class BlpItem
 	}
 	
 	public function read(){
-		$query = "SELECT * from ".$this->__tableName()."WHERE id=".$this->id;
+		$query = "SELECT * from ".$this->__tableName()." WHERE id=".$this->id;
+		#echo $query."<br>";
 		$stmt  = $this->db->prepare($query);
 		$stmt->execute();
-		$rows = $stmt->fetchAll();
-		$this->__read($rows[0]);
+		$row = $stmt->fetch();
+		$this->__read($row);
 	}
 	
 	public function write(){

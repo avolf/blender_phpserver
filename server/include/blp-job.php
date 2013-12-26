@@ -6,12 +6,12 @@ class BlpJob extends BlpItem
 	private $end;
 	private $size;
 	
-	public function __construct($db){
-		parent::__construct($db);
+	public function __construct($id,$db){
+		parent::__construct($id,$db);
 	}
-	
-	public function __construct2($id,$db){
-		parent::__construct2($id,$db);
+
+	public function __construct2($db){
+		parent::__construct2($db);
 	}
 	
 	private function updateSize(){	
@@ -35,6 +35,15 @@ class BlpJob extends BlpItem
 		.$this->begin.","
 		.$this->end.")";
 		return $query;
+	}
+	
+	public function getDescriptionRow(){
+		return "<tr>".
+		"<td>".$this->id."</td>".
+		"<td>".$this->name."</td>".
+		"<td>".$this->begin."</td>".
+		"<td>".$this->end."</td>".
+		"</tr>";
 	}
 	
 	public function getName(){

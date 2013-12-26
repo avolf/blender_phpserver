@@ -1,24 +1,18 @@
 <br>
-Job List:
+Job List:<br><br>
+<table border=\"1\" width=\"350\">
 <?php
 $njobs=$blpdb->getNumJobs();
 $rows=$blpdb->getJobList();
 $ids=$blpdb->getJobIDList();
-foreach($ids as $id) {
-	echo $id['id'];
-	echo " ";
-}
 
-echo "<table border=\"1\" width=\"350\">";
-foreach($rows as $row) {
-	$id = $row['id'];
-	$cname = $row['name'];
-	$startframe = $row['fstart'];
-	$endframe = $row['fend'];
-	echo "<tr><td>$id</td><td>$cname</td><td>$startframe</td><td>$endframe</td></tr><br>";
+foreach($ids as $id) {
+	$j=new BlpJob($id['id'],$blpdb);
+	$j->read();
+	echo $j->getDescriptionRow();
 }
-echo "</table><br>";
-	
-echo "<br>There are now $njobs jobs stored in the DB<br>";
 ?>
+</table><br>
+	
+<br>There are now <?php echo $njobs ?> jobs stored in the DB<br>
 If you see this the server is working!
