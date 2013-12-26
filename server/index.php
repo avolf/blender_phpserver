@@ -1,5 +1,7 @@
 <?php
 require_once('blp-load.php');
+require_once(BLPINC.'/blp-jobtable.php');
+
 #init DB
 $blpdb=init_blphp_db();
 
