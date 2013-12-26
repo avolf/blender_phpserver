@@ -3,15 +3,12 @@ function init_blphp_db()
 {
 	define('RPATH',dirname(__FILE__).'/');
 	define('BLPINC','include' );
+	define('BLPCFG','config' );
 
 	require_once(RPATH.BLPINC.'/blp-db.php');
 	require_once(RPATH.BLPINC.'/blp-dbitem.php');
 	require_once(RPATH.BLPINC.'/blp-job.php');
-	require_once(RPATH.'/blp-config.php');
-	
-	#echo "DB_TYPE ";
-	#echo DB_TYPE;
-	#echo "<br>\n";
+	require_once(RPATH.BLPCFG.'/blp-config.php');
 	
 	if (DB_TYPE == 'sqlite2') {
 		#echo "Opening SQLite2 DB";

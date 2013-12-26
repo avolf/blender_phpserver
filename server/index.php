@@ -1,5 +1,5 @@
 <?php
-require_once('blp-loaddb.php');
+require_once('blp-load.php');
 #init DB
 $blpdb=init_blphp_db();
 
