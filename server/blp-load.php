@@ -9,6 +9,7 @@ function init_blphp_db()
 	require_once(BLPINC.'/blp-db.php');
 	require_once(BLPINC.'/blp-dbitem.php');
 	require_once(BLPINC.'/blp-job.php');
+	require_once(BLPINC.'/blp-job-table.php');
 	require_once(BLPCFG.'/blp-config.php');
 	
 	if (DB_TYPE == 'sqlite2') {

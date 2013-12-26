@@ -32,7 +32,9 @@ $b->setName($jobname);
 $b->setBegin($startframe);
 $b->setEnd($endframe);
 if ($b->write())
-	echo "Job successfully created<br>";
+	echo "Job successfully created!";
 else
-	echo "Job creation failed<br>";
+	echo "Job creation failed!";
 ?>
+<br><br>
+<a class="button" href="index.php">Done</a>

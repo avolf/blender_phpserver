@@ -1,4 +1,9 @@
 Job List:<br><br>
-<?php include BLPTPL.'/blp-job-table.tpl.php' ?>
+<?php 
+$njobs=$blpdb->getNumJobs();
+$table= new BlpJobTable($blpdb);
+$table->setShowId(true);
+$table->render();
+?>
 <br>
 There are now <?php echo $njobs ?> jobs stored in the DB.
