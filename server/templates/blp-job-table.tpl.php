@@ -5,9 +5,17 @@ $rows=$blpdb->getJobList();
 $ids=$blpdb->getJobIDList();
 
 foreach($ids as $id) {
-	$j= BlpJob::createWID($id['id'],$blpdb);
+	$j= BlpJob::createByID($id['id'],$blpdb);
 	$j->read();
-	echo $j->getDescriptionRow();
+	echo "<tr>".
+	"<td>".$j->getId()."</td>".
+	"<td>".$j->getName()."</td>".
+	"<td>".$j->getBegin()."</td>".
+	"<td>".$j->getEnd()."</td>";
+	if (isset($jobtableeditable)){
+		echo "<td><a href=\"editjob.php?id=".$j->getId()."\">edit</td>";
+	}
+	echo "</tr>";
 }
 ?>
 </table>

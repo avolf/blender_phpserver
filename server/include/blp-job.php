@@ -15,7 +15,7 @@ class BlpJob extends BlpItem
 		 return $instance;
 	}
 
-	public static function createWID($id, $db){
+	public static function createByID($id, $db){
 		 $instance = new self($db);
 		 $instance->setID($id);
 		 return $instance;
@@ -44,15 +44,9 @@ class BlpJob extends BlpItem
 		return $query;
 	}
 	
-	public function getDescriptionRow(){
-		return "<tr>".
-		"<td>".$this->id."</td>".
-		"<td>".$this->name."</td>".
-		"<td>".$this->begin."</td>".
-		"<td>".$this->end."</td>".
-		"</tr>";
+	public function getId(){
+		return $this->id;
 	}
-	
 	public function getName(){
 		return $this->name;
 	}

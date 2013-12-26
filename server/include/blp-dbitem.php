@@ -30,7 +30,7 @@ class BlpItem
 	public function read(){
 		$query = "SELECT * from ".$this->__tableName()." WHERE id=".$this->id;
 		#echo $query."<br>";
-		$stmt  = $this->db->prepare($query);
+		$stmt = $this->db->prepare($query);
 		$stmt->execute();
 		$row = $stmt->fetch();
 		$this->__read($row);
@@ -40,14 +40,14 @@ class BlpItem
 		if ($this->isnew) {
 			$query="INSERT INTO ".$this->__tableName()." ".$this->__write();
 			#echo "$query<br>";
-			$stmt  = $this->db->prepare($query);
-			$ret = $stmt->execute();
+			$stmt=$this->db->prepare($query);
+			$ret=$stmt->execute();
 			$this->id=$this->db->lastInsertId();
 			#echo "Last inserted id ".$this->id."<br>\n";
 			return $ret;
 		} else {
-			$query="UPDATE ".$this->__tableName()." ".__write()."WHERE id=".$this->id;
-			$stmt  = $this->db->prepare($query);
+			$query="UPDATE ".$this->__tableName()." SET ".$this->__write()."WHERE id=".$this->id;
+			$stmt=$this->db->prepare($query);
 			return $stmt->execute();
 		}
 	}
