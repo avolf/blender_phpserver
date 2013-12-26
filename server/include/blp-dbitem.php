@@ -53,6 +53,13 @@ class BlpItem
 			return $stmt->execute();
 		}
 	}
+	
+	public function delete(){
+		$query="DELETE FROM ".$this->__tableName()." WHERE id=".$this->id;
+		$stmt=$this->db->prepare($query);
+		$ret=$stmt->execute();
+		return $ret;
+	}
 
 	public function getMaxRowid(){
 		$query="SELECT max(rowid) FROM ".$this->__tableName();

@@ -10,3 +10,4 @@ Editing job <?php echo $job->getName() ?>:
  <p>End Frame: <input type="text" name="end" value="<?php echo $job->getEnd(); ?>" /></p>
  <p><input type="submit" /></p>
 </form>
+<a class="button" href="deljob.php?id=<?php echo $jobid; ?>">Delete</a>
