@@ -38,10 +38,13 @@ class BlpItem
 	
 	public function write(){
 		if ($this->isnew) {
-			$this->id=$this->getMaxRowid()+1;
 			$query="INSERT INTO ".$this->__tableName()." ".$this->__write();
+			#echo "$query<br>";
 			$stmt  = $this->db->prepare($query);
-			return $stmt->execute();
+			$ret = $stmt->execute();
+			$this->id=$this->db->lastInsertId();
+			#echo "Last inserted id ".$this->id."<br>\n";
+			return $ret;
 		} else {
 			$query="UPDATE ".$this->__tableName()." ".__write()."WHERE id=".$this->id;
 			$stmt  = $this->db->prepare($query);

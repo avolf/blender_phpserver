@@ -1,6 +1,6 @@
 Alex's blenderphp server<br><br>
 Job List:
-<?
+<?php
 require_once('blp-loaddb.php');
 $blpdb=init_blphp_db();
 

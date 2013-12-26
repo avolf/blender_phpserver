@@ -1,4 +1,4 @@
-<?
+<?php
 //SQLite Database test query
 if(!isset($_GET["job"] )) {
 	echo "No Job name set!\n";

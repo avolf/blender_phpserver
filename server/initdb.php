@@ -1,4 +1,4 @@
-<?
+<?php
 //SQL Database initialization
 require_once('blp-loaddb.php');
 $blpdb=init_blphp_db();

@@ -24,14 +24,13 @@ class BlpJob extends BlpItem
 	
 	public function __read($row){
 		$this->name = $row['name'];
-		$this->begin = $row['start'];
-		$this->end = $row['end'];
+		$this->begin = $row['fstart'];
+		$this->end = $row['fend'];
 		$this->updateSize();
 	}
 	
 	public function __write(){
-		$query = "(id,name,start,end) VALUES ("
-		.$this->id.",'"
+		$query = "(name,fstart,fend) VALUES ('"
 		.$this->name."',"
 		.$this->begin.","
 		.$this->end.")";
