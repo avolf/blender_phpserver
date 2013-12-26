@@ -38,4 +38,7 @@ $job->write();
 Edited Job <?php echo $job->getId(); ?>.<br>
 New name: <?php echo $job->getName(); ?><br>
 New Start Frame: <?php echo $job->getBegin(); ?><br>
-New End Frame: <?php echo $job->getEnd(); ?><br>
+New End Frame: <?php echo $job->getEnd(); ?>
+
+<br><br>
+<a class="button" href="index.php">Done</a>

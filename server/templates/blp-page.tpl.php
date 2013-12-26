@@ -11,7 +11,7 @@
 <a class="button" href="index.php" >Home</a>
 <a class="button" href="newjob.php" >New Job</a>
 <a class="button" href="editjob.php" >Edit</a>
-<br>
+<br><br>
 <?php if ($btpl!="") include $btpl ?>
 </div>
 </body>

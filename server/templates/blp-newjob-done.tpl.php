@@ -32,7 +32,7 @@ $b->setName($jobname);
 $b->setBegin($startframe);
 $b->setEnd($endframe);
 if ($b->write())
-	echo "<br>Job successfully created<br>";
+	echo "Job successfully created<br>";
 else
-	echo "<br>Job creation failed<br>";
+	echo "Job creation failed<br>";
 ?>

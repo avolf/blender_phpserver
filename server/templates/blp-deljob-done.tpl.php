@@ -12,7 +12,7 @@ $job->read();
 $joid=$job->getId();
 $jobname=$job->getName();
 $job->delete();
-echo "<br>Deleted Job $jobid - $jobname!<br><br>"; 
+echo "Deleted Job $jobid - $jobname!"; 
 ?>
-
+<br><br>
 <a class="button" href="index.php">Done</a>
