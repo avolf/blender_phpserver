@@ -44,6 +44,13 @@ class BlpJob extends BlpItem
 		return $query;
 	}
 	
+	public function __update(){
+		$query = "name='".$this->name."', ".
+		"fstart=".$this->begin.", ".
+		"fend=".$this->end;
+		return $query;
+	}
+	
 	public function getId(){
 		return $this->id;
 	}

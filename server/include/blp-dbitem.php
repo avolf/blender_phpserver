@@ -27,6 +27,10 @@ class BlpItem
 		return;
 	}
 	
+	public function __update(){
+		return;
+	}
+	
 	public function read(){
 		$query = "SELECT * from ".$this->__tableName()." WHERE id=".$this->id;
 		#echo $query."<br>";
@@ -39,14 +43,12 @@ class BlpItem
 	public function write(){
 		if ($this->isnew) {
 			$query="INSERT INTO ".$this->__tableName()." ".$this->__write();
-			#echo "$query<br>";
 			$stmt=$this->db->prepare($query);
 			$ret=$stmt->execute();
 			$this->id=$this->db->lastInsertId();
-			#echo "Last inserted id ".$this->id."<br>\n";
 			return $ret;
 		} else {
-			$query="UPDATE ".$this->__tableName()." SET ".$this->__write()."WHERE id=".$this->id;
+			$query="UPDATE ".$this->__tableName()." SET ".$this->__update()." WHERE id=".$this->id;
 			$stmt=$this->db->prepare($query);
 			return $stmt->execute();
 		}
