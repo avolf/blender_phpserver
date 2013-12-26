@@ -16,9 +16,9 @@ class BlpDB extends PDO
 		$this->user=$user;
 		$this->pass=$pass;
 		$dns = $this->engine.":host=".$this->host.";port=".$this->port.";dbname=".$this->database;
-		echo "Opening server DB<br>$dns<br>";
-		echo "pass $pass<br>";
-		echo "user $user<br>";
+		#echo "Opening server DB<br>$dns<br>";
+		#echo "pass $pass<br>";
+		#echo "user $user<br>";
         parent::__construct( $dns, $this->user, $this->pass );
     } 
 	

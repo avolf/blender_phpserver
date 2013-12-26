@@ -10,4 +10,6 @@ define('DB_PASSWORD', '');
 define('DB_HOST', '127.0.0.1');
 /** SQL DB port */
 define('DB_PORT', '3306');
+/** Site name */
+define('SITE_NAME', "Alex's Blender PHP Server");
 ?>
