@@ -66,6 +66,7 @@ class BlpItem
 
 	public function update(){
 		$query="UPDATE ".$this->__tableName()." SET ".$this->__update()." WHERE id=".$this->id;
+		#echo $query."<br>";
 		return $this->runQuery($query);
 	}
 

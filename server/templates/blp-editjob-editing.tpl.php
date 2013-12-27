@@ -1,5 +1,4 @@
 <?php
-
 $isdone=blpGet("done");
 if($isdone) {
 	$jobname=blpPost("name");
@@ -24,9 +23,7 @@ if($isdone) {
 	$job->setBegin($startframe);
 	$job->setEnd($endframe);
 	$job->write();
-
 }
-
 
 $jobid=blpGet("id");
 $job=BlpJob::createById($jobid,$blpdb);
@@ -48,5 +45,10 @@ if($isdone) {
 }
 ?>
 <p><input type="submit" /></p>
+</form>
+<form action="upload.php?id=<?php echo $jobid; ?>" method="post" enctype="multipart/form-data">
+<label for="file">Filename:</label><br>
+<input type="file" name="file" id="file"><br>
+<input type="submit" name="submit" value="Submit">
 </form>
 <a class="button" href="deljob.php?id=<?php echo $jobid; ?>">Delete</a>

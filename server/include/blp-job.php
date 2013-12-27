@@ -95,7 +95,7 @@ class BlpJob extends BlpItem
 		$query = "name='".$this->name."', ".
 		"fstart=".$this->begin.", ".
 		"fend=".$this->end.", ".
-		"fileName=".$this->fileName;
+		"fileName='".$this->fileName."'";
 		return $query;
 	}
 
@@ -115,6 +115,9 @@ class BlpJob extends BlpItem
 	public function setEnd($i){
 		$this->end=$i;
 		$this->updateSize();
+	}
+	public function setFileName($f){
+		$this->fileName=$f;
 	}
 }
 ?>
