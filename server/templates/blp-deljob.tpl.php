@@ -1,8 +1,8 @@
 <?php
 
-$jobid=$_GET["id"];
+$jobid=blpGet("id");
 
-if($jobid=="") {
+if(!$jobid) {
 	echo "No Job ID set!\n";
 	echo "<br>";
 	return;

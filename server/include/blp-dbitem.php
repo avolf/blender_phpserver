@@ -35,6 +35,11 @@ class BlpItem
 		return;
 	}
 
+	public function runQuery($q){
+		$stmt = $this->db->prepare($q);
+		return $stmt->execute();
+	}
+
 	public function read(){
 		$query = "SELECT * from ".$this->__tableName()." WHERE id=".$this->id;
 		#echo $query."<br>";
@@ -54,30 +59,24 @@ class BlpItem
 
 	public function insert(){
 		$query="INSERT INTO ".$this->__tableName()." ".$this->__insert();
-		$stmt=$this->db->prepare($query);
-		$ret=$stmt->execute();
+		$ret=$this->runQuery($query);
 		$this->id=$this->db->lastInsertId();
 		return $ret;
 	}
 
 	public function update(){
 		$query="UPDATE ".$this->__tableName()." SET ".$this->__update()." WHERE id=".$this->id;
-		$stmt=$this->db->prepare($query);
-		return $stmt->execute();
+		return $this->runQuery($query);
 	}
 
 	public function delete(){
 		$query="DELETE FROM ".$this->__tableName()." WHERE id=".$this->id;
-		$stmt=$this->db->prepare($query);
-		$ret=$stmt->execute();
-		return $ret;
+		return $this->runQuery($query);
 	}
 
 	public function getMaxRowid(){
 		$query="SELECT max(rowid) FROM ".$this->__tableName();
-		$stmt  = $this->db->prepare($query);
-		$stmt->execute();
-		$result=$stmt->fetch();
+		$result=$this->runQuery($query)->fetch();
 		$maxrid=$result[0];
 		if($maxrid=="") $maxrid=0;
 		return $maxrid;

@@ -1,29 +1,18 @@
 <?php
-if(!isset($_POST["name"]) ||
-!isset($_POST["start"]) ||
-!isset($_POST["end"])) {
-	echo "Error only usable as post!\n";
-	echo "<br>";
-	return;
-}
-
 $jobname=blpPost("name");
 $startframe=blpPost("start");
 $endframe=blpPost("end");
 
 if($jobname=="") {
-	echo "No Job name set!\n";
-	echo "<br>";
+	echo "No Job name set!<br>\n";
 	return;
 }
 if($startframe=="") {
-	echo "No Job start frame set!\n";
-	echo "<br>";
+	echo "No Job start frame set!<br>\n";
 	return;
 }
 if($endframe=="") {
-	echo "No Job end frame set!\n";
-	echo "<br>";
+	echo "No Job end frame set!<br>\n";
 	return;
 }
 

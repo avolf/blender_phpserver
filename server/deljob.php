@@ -6,9 +6,9 @@ $blpdb=init_blphp_db();
 #init Templates
 $htpl="";
 
-if(isset($_GET["id"]))
+if(blpGet("id"))
 {
-	if(isset($_GET["done"]))
+	if(blpGet("done"))
 		$btpl=BLPTPL.'/blp-deljob-done.tpl.php';
 	else
 		$btpl=BLPTPL.'/blp-deljob.tpl.php';
