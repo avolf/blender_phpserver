@@ -2,6 +2,8 @@ Job List: <br><br>
 <?php
 $njobs=$blpdb->getNumJobs();
 $table= new BlpJobTable($blpdb);
+$table->setShowId(true);
+$table->setShowFname(true);
 $table->setShowEdit(true);
 $table->render();
 ?>

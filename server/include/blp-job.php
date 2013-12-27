@@ -52,7 +52,7 @@ class BlpJob extends BlpItem
 	}
 
 	private function updateSize(){
-		$size = $this->end-$this->begin;
+		$this->size = ($this->end)-($this->begin);
 	}
 
 	public function __tableName(){
@@ -103,7 +103,10 @@ class BlpJob extends BlpItem
 	public function getName(){ return $this->name; }
 	public function getBegin(){	return $this->begin; }
 	public function getEnd(){ return $this->end; }
-	public function getSize(){ return $this->end; }
+	public function getSize(){ return $this->size; }
+	public function getFileName(){ return $this->fileName; }
+	public function getCdate(){ return $this->creationDate; }
+
 	public function setName($i){ $this->name=$i; }
 	public function setBegin($i){
 		$this->begin=$i;
