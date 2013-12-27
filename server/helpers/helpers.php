@@ -30,4 +30,14 @@ function blpRemoveDir($dir) {
 	rmdir($dir);
 }
 
+function tableExists($db, $id)
+{
+    $res = $db->query("SHOW TABLES LIKE '$id'");
+    if(!$res) {
+        return $db->errorInfo();
+    }
+    if ($res->rowCount()>0) return true;
+    else return false;
+}
+
 ?>
