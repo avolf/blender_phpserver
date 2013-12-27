@@ -15,5 +15,5 @@ if(blpGet("id"))
 }
 
 #serve Base page template
-include BLPTPL."/blp-page.tpl.php";
+include BLPTPL.'/blp-page.tpl.php';
 ?>

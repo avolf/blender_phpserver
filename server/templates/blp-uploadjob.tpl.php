@@ -31,17 +31,17 @@ else
 	#{
 	#	echo $fname . " already exists. ";
 	#}
+
+	move_uploaded_file($tempname, $ftargetpath);
+	echo "Stored in: " . $ftargetpath;
+	$oldjobfilename=$job->getJobFolder()."/".$job->getFileName();
+	if($job->getFileName()!=$fname && $job->getFileName()!="" && file_exists($oldjobfilename))
 	{
-		move_uploaded_file($tempname, $ftargetpath);
-		echo "Stored in: " . $ftargetpath;
-		$oldjobfilename=$job->getJobFolder()."/".$job->getFileName();
-		if($job->getFileName()!=$fname && $job->getFileName()!="" && file_exists($oldjobfilename))
-		{
-			unlink($oldjobfilename);
-			$job->setFileName($fname);
-			$job->write();
-		}
+		unlink($oldjobfilename);
+		$job->setFileName($fname);
+		$job->write();
 	}
 }
-
 ?>
+<br><br>
+<a class="button" href="editjob.php?id=<?php echo $jobid; ?>">Done</a>

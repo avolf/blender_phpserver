@@ -3,7 +3,6 @@ echo "<table border=\"1\" width=\"450\">";
 
 $db=$this->db;
 $njobs=$db->getNumJobs();
-$rows=$db->getJobList();
 $ids=$db->getJobIDList();
 
 if ($this->showDescr){

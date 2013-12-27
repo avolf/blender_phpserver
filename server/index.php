@@ -10,5 +10,5 @@ $htpl="";
 $btpl=BLPTPL.'/blp-index.tpl.php';
 
 #serve Base page template
-include BLPTPL."/blp-page.tpl.php";
+include BLPTPL.'/blp-page.tpl.php';
 ?>

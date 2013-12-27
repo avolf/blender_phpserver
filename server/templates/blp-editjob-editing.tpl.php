@@ -46,9 +46,9 @@ if($isdone) {
 ?>
 <p><input type="submit" /></p>
 </form>
-<form action="upload.php?id=<?php echo $jobid; ?>" method="post" enctype="multipart/form-data">
-<label for="file">Filename:</label><br>
-<input type="file" name="file" id="file"><br>
+<form action="uploadJobFile.php?id=<?php echo $jobid; ?>" method="post" enctype="multipart/form-data">
+<label for="file">Upload file:</label>
+<input type="file" name="file" id="file">
 <input type="submit" name="submit" value="Submit">
 </form>
 <a class="button" href="deljob.php?id=<?php echo $jobid; ?>">Delete</a>
