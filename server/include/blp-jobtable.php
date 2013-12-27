@@ -14,7 +14,7 @@ class BlpJobTable {
 	}
 	
 	public function render() {
-		include BLPTPL.'/blp-jobtable.tpl.php';
+		include 'blp-jobtable.tpl.php';
 	}
 	
 	public function setShowEdit($b) {
