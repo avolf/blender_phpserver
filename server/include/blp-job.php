@@ -36,9 +36,21 @@ class BlpJob extends BlpItem
 		return $ret;
 	}
 
+	public function getJobFolderRel(){
+		return "jobs/"."job".$this->id;
+	}
+
 	public function getJobFolder(){
-		$f=RPATH."jobs/"."job".$this->id;
+		$f=RPATH.$this->getJobFolderRel();
 		return $f;
+	}
+
+	public function getFilePath(){
+		return $this->getJobFolder()."/".$this->getFileName();
+	}
+
+	public function getFileLink(){
+		return $this->getJobFolderRel()."/".$this->getFileName();
 	}
 
 	public function createJobFolder(){
