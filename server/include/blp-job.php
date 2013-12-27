@@ -5,7 +5,9 @@ class BlpJob extends BlpItem
 	private $begin;
 	private $end;
 	private $size;
-	
+	private $fileName;
+	private $creationDate;
+
 	public function __construct($db){
 		parent::__construct($db);
 	}
@@ -20,43 +22,83 @@ class BlpJob extends BlpItem
 		 $instance->setID($id);
 		 return $instance;
 	}
-	
-	public function firstWrite(){
-		$ret = parent::firstWrite();
+
+	public function insert(){
+		$ret = parent::insert();
 		#initialisation here...
+		$this->createJobFolder();
 		return $ret;
 	}
-	
-	private function updateSize(){	
+
+	public function delete(){
+		$ret = parent::delete();
+		$this->removeJobFolder();
+		return $ret;
+	}
+
+	public function getJobFolder(){
+		$f=RPATH."jobs/"."job".$this->id;
+		return $f;
+	}
+
+	public function createJobFolder(){
+		return blpMakeDir($this->getJobFolder());
+	}
+
+	public function removeJobFolder(){
+		$f=$this->getJobFolder();
+		if (file_exists($f)) return blpRemoveDir($this->getJobFolder());
+		return false;
+	}
+
+	private function updateSize(){
 		$size = $this->end-$this->begin;
 	}
-	
+
 	public function __tableName(){
 		return "job_list";
 	}
-	
+
+	public function __tableDef(){
+		$q="(".
+		"id INT AUTO_INCREMENT PRIMARY KEY, ".
+		"name varchar(32) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL UNIQUE, ".
+		"fstart int NOT NULL, ".
+		"fend int NOT NULL, ".
+		"fileName varchar(64) CHARACTER SET utf8 COLLATE utf8_bin, ".
+		"cdate datetime NOT NULL ".
+		")";
+		return $q;
+	}
+
 	public function __read($row){
 		$this->name = $row['name'];
 		$this->begin = $row['fstart'];
 		$this->end = $row['fend'];
+		$this->fileName = $row['fileName'];
+		$this->creationDate = $row['cdate'];
 		$this->updateSize();
 	}
-	
-	public function __write(){
-		$query = "(name,fstart,fend) VALUES ('"
+
+	public function __insert(){
+		$query = "(name,fstart,fend,fileName,cdate) VALUES ('"
 		.$this->name."',"
 		.$this->begin.","
-		.$this->end.")";
+		.$this->end.","
+		."'".$this->fileName."'".","
+		."NOW()"
+		.")";
 		return $query;
 	}
-	
+
 	public function __update(){
 		$query = "name='".$this->name."', ".
 		"fstart=".$this->begin.", ".
-		"fend=".$this->end;
+		"fend=".$this->end.", ".
+		"fileName=".$this->fileName;
 		return $query;
 	}
-	
+
 	public function getId(){ return $this->id; }
 	public function getName(){ return $this->name; }
 	public function getBegin(){	return $this->begin; }
