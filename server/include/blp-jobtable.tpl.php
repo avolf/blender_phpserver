@@ -2,8 +2,7 @@
 echo "<table border=\"1\" width=\"450\">";
 
 $db=$this->db;
-$njobs=$db->getNumJobs();
-$ids=$db->getJobIDList();
+$ids=$this->jobIds;
 
 if ($this->showDescr){
 	echo "<tr>";

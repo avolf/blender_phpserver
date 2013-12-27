@@ -8,6 +8,7 @@ class BlpJobTable {
 	private $showFname;
 	private $showSize;
 	private $showDescr;
+	private $jobIds;
 
 	public function __construct($db) {
 		$this->db=$db;
@@ -17,9 +18,15 @@ class BlpJobTable {
 		$this->showCdate=true;
 		$this->showFname=false;
 		$this->showSize=true;
+		$this->jobIds=array();
 	}
 
 	public function render() {
+		include 'blp-jobtable.tpl.php';
+	}
+
+	public function renderAll() {
+		$this->jobIds=$this->db->getJobIDList();
 		include 'blp-jobtable.tpl.php';
 	}
 
@@ -29,6 +36,10 @@ class BlpJobTable {
 
 	public function setShowId($b) {
 		$this->showId=$b;
+	}
+
+	public function setId($id) {
+		$this->jobIds[0]=$id;
 	}
 
 	public function setShowDescr($b) {

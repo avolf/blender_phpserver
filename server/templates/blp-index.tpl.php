@@ -3,7 +3,7 @@ Job List:<br><br>
 $njobs=$blpdb->getNumJobs();
 $table= new BlpJobTable($blpdb);
 $table->setShowId(false);
-$table->render();
+$table->renderAll();
 ?>
 <br>
 There are now <?php echo $njobs ?> jobs stored in the DB.
