@@ -23,6 +23,27 @@ class BlpJob extends BlpItem
 		 return $instance;
 	}
 
+	public function getId(){ return $this->id; }
+	public function getName(){ return $this->name; }
+	public function getBegin(){	return $this->begin; }
+	public function getEnd(){ return $this->end; }
+	public function getSize(){ return $this->size; }
+	public function getFileName(){ return $this->fileName; }
+	public function getCdate(){ return $this->creationDate; }
+
+	public function setName($i){ $this->name=$i; }
+	public function setBegin($i){
+		$this->begin=$i;
+		$this->updateSize();
+	}
+	public function setEnd($i){
+		$this->end=$i;
+		$this->updateSize();
+	}
+	public function setFileName($f){
+		$this->fileName=$f;
+	}
+
 	public function insert(){
 		$ret = parent::insert();
 		#initialisation here...
@@ -109,27 +130,6 @@ class BlpJob extends BlpItem
 		"fend=".$this->end.", ".
 		"fileName='".$this->fileName."'";
 		return $query;
-	}
-
-	public function getId(){ return $this->id; }
-	public function getName(){ return $this->name; }
-	public function getBegin(){	return $this->begin; }
-	public function getEnd(){ return $this->end; }
-	public function getSize(){ return $this->size; }
-	public function getFileName(){ return $this->fileName; }
-	public function getCdate(){ return $this->creationDate; }
-
-	public function setName($i){ $this->name=$i; }
-	public function setBegin($i){
-		$this->begin=$i;
-		$this->updateSize();
-	}
-	public function setEnd($i){
-		$this->end=$i;
-		$this->updateSize();
-	}
-	public function setFileName($f){
-		$this->fileName=$f;
 	}
 }
 ?>
