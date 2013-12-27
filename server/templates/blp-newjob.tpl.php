@@ -5,5 +5,5 @@ Create new job:
 <tr><td>Start Frame:</td><td><input type="text" name="start" /></td></tr>
 <tr><td>End Frame:</td><td><input type="text" name="end" /></td></tr>
 </table></p>
-<p><input type="submit" /></p>
+<p><input class="button" type="submit" name="submit" value="Create"/></p>
 </form>

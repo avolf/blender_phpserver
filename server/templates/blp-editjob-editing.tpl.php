@@ -51,12 +51,12 @@ if($isdone) {
 	"New End Frame: ".$job->getEnd()."<br>";
 }
 ?>
-<p><input type="submit" /></p>
+<p><input class="button" type="submit" value="Update"/></p>
 </form>
 Current File: <a href="<?php echo $job->getFileLink(); ?>"><?php echo $job->getFileName(); ?></a>
 <form action="uploadJobFile.php?id=<?php echo $jobid; ?>" method="post" enctype="multipart/form-data">
 <label for="file">Upload file:</label>
 <input type="file" name="file" id="file">
-<input type="submit" name="submit" value="Submit">
+<input class="button" type="submit" name="submit" value="Upload">
 </form>
 <a class="button" href="deljob.php?id=<?php echo $jobid; ?>">Delete</a>
