@@ -42,16 +42,20 @@ class BlpItem
 	
 	public function write(){
 		if ($this->isnew) {
-			$query="INSERT INTO ".$this->__tableName()." ".$this->__write();
-			$stmt=$this->db->prepare($query);
-			$ret=$stmt->execute();
-			$this->id=$this->db->lastInsertId();
-			return $ret;
+			return $this->firstWrite();
 		} else {
 			$query="UPDATE ".$this->__tableName()." SET ".$this->__update()." WHERE id=".$this->id;
 			$stmt=$this->db->prepare($query);
 			return $stmt->execute();
 		}
+	}
+	
+	public function firstWrite(){
+		$query="INSERT INTO ".$this->__tableName()." ".$this->__write();
+		$stmt=$this->db->prepare($query);
+		$ret=$stmt->execute();
+		$this->id=$this->db->lastInsertId();
+		return $ret;
 	}
 	
 	public function delete(){

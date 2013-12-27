@@ -21,6 +21,12 @@ class BlpJob extends BlpItem
 		 return $instance;
 	}
 	
+	public function firstWrite(){
+		$ret = parent::firstWrite();
+		#initialisation here...
+		return $ret;
+	}
+	
 	private function updateSize(){	
 		$size = $this->end-$this->begin;
 	}
@@ -51,24 +57,12 @@ class BlpJob extends BlpItem
 		return $query;
 	}
 	
-	public function getId(){
-		return $this->id;
-	}
-	public function getName(){
-		return $this->name;
-	}
-	public function getBegin(){
-		return $this->begin;
-	}
-	public function getEnd(){
-		return $this->end;
-	}
-	public function getSize(){
-		return $this->end;
-	}
-	public function setName($i){
-		$this->name=$i;
-	}
+	public function getId(){ return $this->id; }
+	public function getName(){ return $this->name; }
+	public function getBegin(){	return $this->begin; }
+	public function getEnd(){ return $this->end; }
+	public function getSize(){ return $this->end; }
+	public function setName($i){ $this->name=$i; }
 	public function setBegin($i){
 		$this->begin=$i;
 		$this->updateSize();
