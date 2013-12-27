@@ -30,6 +30,13 @@ $job=BlpJob::createById($jobid,$blpdb);
 $job->read();
 ?>
 Editing job <?php echo $job->getName() ?>:
+<?php
+$table= new BlpJobTable($blpdb);
+$table->setId($jobid);
+$table->setShowId(true);
+$table->setShowFname(true);
+$table->render();
+?>
 <form action="editjob.php?done=1&id=<?php echo $jobid; ?>" method="post">
 <p><table>
 <tr><td>Job Name:</td><td><input type="text" name="name" value="<?php echo $job->getName(); ?>"/></td></tr>

@@ -67,7 +67,11 @@ class BlpDB extends PDO
 		$stmt  = $this->prepare($query);
 		$stmt->execute();
 		$rows = $stmt->fetchAll();
-		return $rows;
+		$ids=array();
+		foreach($rows as $row) {
+			$ids[]=$row['id'];
+		}
+		return $ids;
 	}
 }
 

@@ -1,5 +1,5 @@
 <?php
-echo "<table border=\"1\" width=\"450\">";
+echo "<table border=\"1\" width=\"650\">";
 
 $db=$this->db;
 $ids=$this->jobIds;
@@ -25,7 +25,7 @@ if ($this->showDescr){
 	echo "</tr>";
 }
 foreach($ids as $id) {
-	$j= BlpJob::createByID($id['id'],$db);
+	$j= BlpJob::createByID($id,$db);
 	$j->read();
 	echo "<tr>";
 	if ($this->showId){
