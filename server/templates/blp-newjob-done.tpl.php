@@ -7,9 +7,9 @@ if(!isset($_POST["name"]) ||
 	return;
 }
 
-$jobname=$_POST["name"];
-$startframe=$_POST["start"];
-$endframe=$_POST["end"];
+$jobname=blpPost("name");
+$startframe=blpPost("start");
+$endframe=blpPost("end");
 
 if($jobname=="") {
 	echo "No Job name set!\n";

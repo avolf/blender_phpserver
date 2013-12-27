@@ -1,5 +1,5 @@
 <?php
-$jobid=$_GET["id"];
+$jobid=blpGet("id");
 $job=BlpJob::createById($jobid,$blpdb);
 $job->read();
 ?>
