@@ -9,10 +9,7 @@ $htpl="";
 
 if(blpGet("id"))
 {
-	if(blpGet("done"))
-		$btpl=BLPTPL.'/blp-editjob-done.tpl.php';
-	else
-		$btpl=BLPTPL.'/blp-editjob-editing.tpl.php';
+	$btpl=BLPTPL.'/blp-editjob-editing.tpl.php';
 }
 else
 	$btpl=BLPTPL.'/blp-editjob.tpl.php';
