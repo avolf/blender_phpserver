@@ -3,7 +3,7 @@ require_once('blp-load.php');
 $blpdb=init_blphp_db();
 
 $initdb=intval(blpGet("initdb"));
-$deletedb=intval(blpGet("deletedb"));
+$deldb=intval(blpGet("deldb"));
 
 $exists=tableExists($blpdb,"job_list");
 if ($exists===true) echo "A DB seems to be present.<br>";
@@ -25,21 +25,18 @@ if ((!$exists)&&$initdb) {
 	$b->write();
 }
 
-if ($exists&&$deletedb===2) {
+if ($exists&&$deldb===2) {
 	echo "Deleteing the DB....";
 	$blpdb->deleteDB();
 	echo "DELETED<br>";
 	$exists=false;
 }
-if (!$exists) {
+if (!$exists)
 	echo '<a class="button" href="configdb.php?initdb=1">Init DB</a> ';
-}
-if ($exists){
-	echo '<a class="button" href="configdb.php?deletedb=1">Delete DB</a> ';
-}
-if ($deletedb===1) {
-	echo '<a class="button" href="configdb.php?deletedb=2">Really?</a><br>';
-}
+if ($exists)
+	echo '<a class="button" href="configdb.php?deldb=1">Delete DB</a> ';
+if ($deldb===1)
+	echo '<a class="button" href="configdb.php?deldb=2">Really?</a><br>';
 ?>
 <br>
 
