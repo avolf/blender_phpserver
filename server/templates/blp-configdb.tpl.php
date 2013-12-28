@@ -4,6 +4,7 @@ $blpdb=init_blphp_db();
 
 $initdb=intval(blpGet("initdb"));
 $deldb=intval(blpGet("deldb"));
+$phpinfo=intval(blpGet("phpinfo"));
 
 $exists=tableExists($blpdb,"job_list");
 if ($exists===true) echo "A DB seems to be present.<br>";
@@ -39,4 +40,12 @@ if ($deldb===1)
 	echo '<a class="button" href="configdb.php?deldb=2">Really?</a><br>';
 ?>
 <br>
+<br>
+<a class="button" href="configdb.php?phpinfo=1">PHP Info</a><br>
+<br>
+<?php
+if ($phpinfo===1)
+	phpinfo();
+?>
+
 
