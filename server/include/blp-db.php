@@ -32,6 +32,7 @@ class BlpDB extends PDO
 
 	public function initDB() {
 		try {
+			mkdir(RPATH."jobs");
 			$j=new BlpJob($this);
 			$query = $j->createTable();
 
@@ -44,6 +45,19 @@ class BlpDB extends PDO
 		}
 			catch (PDOException $e) { echo $e->getMessage();
 		}
+	}
+
+	public function deleteDB(){
+		$jobids=$this->getJobIDList();
+		foreach($jobids as $id) {
+			$j=BlpJob::createById($id,$this);
+			$j->read();
+			$j->delete();
+		}
+		deleteTable($this,BlpJob::tableName());
+
+		$jobspath=RPATH."jobs";
+		if (file_exists($jobspath)) blpRemoveDir($jobspath);
 	}
 
 	public function getNumJobs() {

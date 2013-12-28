@@ -88,8 +88,12 @@ class BlpJob extends BlpItem
 		$this->size = ($this->end)-($this->begin);
 	}
 
-	public function __tableName(){
+	static public function tableName(){
 		return "job_list";
+	}
+
+	public function __tableName(){
+		return $this->tableName();
 	}
 
 	public function __tableDef(){

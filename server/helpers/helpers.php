@@ -40,4 +40,11 @@ function tableExists($db, $id)
     else return false;
 }
 
+function deleteTable($db,$name)
+{
+	$q = "DROP TABLE `".$name."` ;";
+	$stmt  = $db->prepare($q);
+	return $stmt->execute();
+}
+
 ?>
