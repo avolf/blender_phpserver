@@ -6,6 +6,9 @@ if (!$jobid) {
 	return;
 }
 
+#print_r($_FILES);
+#print_r($_POST);
+
 if ($_FILES["file"]["error"] > 0)
 {
 	echo "Return Code: " . $_FILES["file"]["error"] . "<br>";
@@ -38,9 +41,9 @@ else
 	if($job->getFileName()!=$fname && $job->getFileName()!="" && file_exists($oldjobfilename))
 	{
 		unlink($oldjobfilename);
-		$job->setFileName($fname);
-		$job->write();
 	}
+	$job->setFileName($fname);
+	$job->write();
 }
 ?>
 <br><br>
