@@ -83,3 +83,5 @@ class BlpItem
 		return $maxrid;
 	}
 }
+
+?>

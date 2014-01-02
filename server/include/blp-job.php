@@ -1,4 +1,5 @@
 <?php
+
 class BlpJob extends BlpItem
 {
 	private $name;
@@ -136,4 +137,5 @@ class BlpJob extends BlpItem
 		return $query;
 	}
 }
+
 ?>
